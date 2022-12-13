@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Home
+{% endblock title %}
+
+{% block content %}
+  <h1>This is {{user.username}}</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for p in Product %}
+    <div class="col">
+      <div class="card text-center">
+        <img src="..." class="{{ p.main_photo.url }}" alt="Images">
+        <div class="card-body">
+          <a href="/detail/{{p.id}}">
+          <h5 class="card-title "> Title :- {{p.product_name}}</h5>
+          <p class="card-text ">{{p.description | truncatewords:10}} </p>
+          <p class="card-text ">Base Price :- {{p.base_price}}</p>
+          <p class="card-text ">Current Price :-{{p.current_price}}</p>
+        </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock content %}

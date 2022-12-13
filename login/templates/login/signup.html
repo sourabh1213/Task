@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+<form action="" method="post" class="text-center">
+    <h1>Create New Account</h1>
+    {% csrf_token %}
+    {% for i in form %}
+      <p> {{i.label_tag}} {{i}}  {{i.errors|striptags}} </p>
+    {% endfor %}
+    <input type="submit" value="Submit">
+    
+    {% if messages %}
+    {% for m in messages %}
+    {{m}}
+    {% endfor %}
+    {% endif %}
+</form>
+<a href="{% url 'login' %}">
+    <button>Login</button>
+</a>
+{% endblock content %}

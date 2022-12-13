@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Detail Page
+{% endblock title %}
+
+
+{% block content %}
+
+<!-- Main Content -->
+<div class="card text-center m-4">
+    <div class="row g-0 ">
+        <div class="col-md-6">
+            <img src="{{Product.main_photo.url}}" class="img-fluid rounded-start" alt="Image">
+        </div>
+      <div class="col-md-6">
+        <div class="card-body">
+            <h5 class="card-title">{{Product.product_name}}</h5>
+            <p class="card-text"> {{Product.base_price}} </p>
+            <p class="card-text"> {{Product.current_price}} </p>
+            <span>
+              <input type="text" placeholder="Enter Your Bid Amount">
+              <button class="btn btn-success" ><input type="submit" value="Bid"> {{fm}} </button>
+            </span>
+            <p class="card-text">{{Product.description}}.</p>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- End Main Content -->
+
+<!-- Who Bid  -->
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Bidding Price</th>
+      <th scope="col">Base Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{Product.id}}</th>
+      <td>{{user.username}}</td>
+      <td>{{Product.current_price}}</td>
+      <td>{{Product.base_price}}</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Emd Who Bid  -->
+{% endblock content %}
